@@ -1,0 +1,64 @@
+Lex - Gerador de analisador léxico - verifica se os tokens estão formados corretamente (palavras reservado da linguagem por exemplo)
+    - token id => nome de variavel, funcao, etc
+    - escrever expressão regular para especificar os tokens (começa com qual letra, tem qnts caracteres etc)
+    - pra reconhecer uma cadeia é preciso de um automato
+    
+    - escrever as expressões regulares de cada tipo de token da linguagem
+    - pegar as expressões regulares e transformar em automatos - automatos finitos deterministicos
+    - o flex vai gerar o reconhecedor
+
+Yac - Gerador de analisar sintático
+    - agrupa os tokens
+    - os tokens agrupados satisfazem alguma regra da grámatica
+    - dado um programa, quero saber se essa linguagem gera este exemplo
+    - especificar uma grámatica
+    - yac vai gerar o automato reconhecedor
+
+
+
+
+Simples - Referência básica
+A partir do documento tem que tirar as regras:
+    - lexicas
+    - sintáticas
+    - semanticas
+
+Um programa nessa linguagem é uma lista de declarações
+///// TIPOS
+Já possui três tipos definidos: inteiro, real e cadeia
+    - declaração de tipo - três tipos: inteiro, registro (usa chaves {}), tipo vetor (usa [])
+    - variavel
+    - funcao.
+        
+
+///// VARIAVEIS
+Declaração de variáveis sempre vem com "var (palavra reservada) nome_variavel: tipo_variavel := incializacao"
+- A variavel utiliza declaracao de variaveis, então não é possível usar uma variável sem declarar
+- Toda variável, quando a variavel é declarada ela precisa ser inicialziada
+
+
+///// REGRAS QUE NÃO ESTÁ NO TEXTO MAS DEU PRA IDENTIFICAR
+- Regras semanticas:
+    - Var precisa ser inicializada, a inicialização ela pode ser uma expressão ou abre {} e uma lista de expressão.
+      Isso só faz sentido se o tipo da variável for um registro, caso contrário, não pode permitir. 
+    - Se criar uma variavel que é um vetor e esse vetor tem 3 dimensões e inicializo isso com 0. Todas as posições do vetor serão preenchidas com 0.
+
+- Regras função
+    - Se tem dois pontos : e o tipo, quer dizer que ela retorna um valor
+    - Se não tiver, é um procedimento
+    - Se declara função começando por "fun nome_funcao (lista de campos) = corpo"
+
+- Regras blocos
+    - É uma lista de comandos
+    - Delimitado sempre pela palavra "inicio" e "fim"
+    - lista de comandos = um unico comando ou vários comandos separados por ;
+
+- Local de armazenamento 
+    - Variavels - id
+    - POde ser uma propriedade de um registro local.id
+    - Pode ser vetores local[]
+
+///////// EX 1
+Escrever ordenação da bolha na linguagem do prof.
+Versão 1: uma função e nao pode ter variáveis globais
+Versão 2: Precisa usar variavel global e ter pelo menos 2 funções
