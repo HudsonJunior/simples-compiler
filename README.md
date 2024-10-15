@@ -1,4 +1,3 @@
-
 # Simples Compiler
 
 This project implements a basic compiler, developed in **C++**, to demonstrate compiler design fundamentals. The compiler parses and interprets simple expressions using a custom lexer and parser. This project covers key aspects of compiler theory, including:
